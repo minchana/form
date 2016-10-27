@@ -1,0 +1,22 @@
+<h1>Details</h1>
+<table>
+	<tr>
+		<th>firstname</th>
+		<th>lastname</th>
+		<th>email</th>
+		<th>password</th>
+	</tr>
+	<% @forms.each do |form|%>
+	<tr>
+		<th><%=form.firstname%></th>
+		<th><%=form.lastname%></th>
+		<th><%=form.email%></th>
+		<th><%=form.password%></th>
+
+		<td><%=link_to 'Edit',form_edit_path(form) %></td>
+		<td><%=link_to 'Destroy',form_destroy_path(form),
+		method: :delete,
+		data: {confirm: 'Are you sure?'} %></td> 
+	</tr>
+	<%end%>
+</table>
