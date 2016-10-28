@@ -1,0 +1,19 @@
+<h1>Details</h1>
+<table>
+	<tr>
+		<th>firstname</th>
+		<th>lastname</th>
+		<th>email</th>
+		<th>password</th>
+	</tr>
+	<% @forms.each do |form|%>
+	<tr>
+		<th><%=form.firstname%></th>
+		<th><%=form.lastname%></th>
+		<th><%=form.email%></th>
+		<th><%=form.password%></th>
+
+		<td><%=link_to 'Edit Update',form_edit_path(form) %></td>
+	</tr>
+	<%end%>
+</table>

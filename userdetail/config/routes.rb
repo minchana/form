@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get "form/:id/edit" => "forms#edit", as: :form_edit
   put "form/:id/edit" => "forms#update", as: :form_update
   delete "form/:id" => "forms#destroy", as: :form_destroy
+ # get "form/profile" => "forms#profile", as: :form_profile
   
 
 

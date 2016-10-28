@@ -3,11 +3,15 @@ class FormsController < ApplicationController
 		@form=Form.new
 	end
 	def create
-		binding.pry
+		# binding.pry
 		@form=Form.new(form_params)
-		@form.save
+		if @form.save
 		redirect_to forms_list_path
+	else 
+		render 'new'
 	end
+end
+	
 
 	def edit
 	# binding.pry
@@ -23,7 +27,8 @@ class FormsController < ApplicationController
 	@form=Form.find_by_id(params[:id])
 	@form.update_attributes(form_params)
 	redirect_to forms_list_path
-	end
+end
+
 
 	def destroy
 		@form=Form.find_by_id(params[:id])
@@ -31,9 +36,16 @@ class FormsController < ApplicationController
 		redirect_to forms_list_path
 	end
 
+	# def profile
+	# 	@form=Form.all
+
+	# end
+ 
 	private
      def form_params
 	   params.require(:form).permit(:firstname,:lastname,:email,:password)
       end
+  end
 
-end
+
+

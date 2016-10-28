@@ -1,4 +1,21 @@
+<h1> Enter the details </h1>
 <%=form_for :form do |f| %>
+
+<%= form_for @form, url: form_create_path do |u| %>
+		<% if @form.errors.any? %>
+		    <div id="error_explanation">
+		      <h2>
+		        <%= pluralize(@form.errors.count, "error") %> prohibited
+		        this user from being saved:
+		      </h2>
+		      <ul>
+		        <% @form.errors.full_messages.each do |msg| %>
+		          <li><%= msg %></li>
+		        <% end %>
+		      </ul>
+		    </div>
+		<% end %>
+
 <p>
 	<%= f.label :firstname %><br>
 	<%= f.text_field :firstname %>
@@ -18,4 +35,5 @@
 <p>
 	<%= f.submit %>
 </p>
+<%end%>
 <%end%>
